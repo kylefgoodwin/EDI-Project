@@ -1,0 +1,16 @@
+{
+  "name": "edi-inspector-pro",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "python-shell": "^5.0.0",
+    "electron-store": "^8.1.0",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0"
+  }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EDI Inspector Pro + AI</title>
+    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #1f2937; }
+        ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
+        /* JSON Colors */
+        .json-key { color: #9cdcfe; }
+        .json-string { color: #ce9178; }
+        .json-number { color: #b5cea8; }
+        .json-boolean { color: #569cd6; }
+        .json-null { color: #569cd6; }
+        /* AI Panel Text */
+        .prose b { color: #e2e8f0; font-weight: 700; }
+        .prose ul { list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem; }
+    </style>
+</head>
+<body class="bg-[#1e1e1e] text-gray-300 h-screen flex flex-col overflow-hidden font-sans">
+
+    <!-- HEADER -->
+    <div class="bg-[#252526] p-4 border-b border-[#3e3e42] flex justify-between items-center shadow-md">
+        <h1 class="text-md font-bold text-gray-100 tracking-wide">EDI INSPECTOR <span class="text-purple-500">AI</span></h1>
+        <button id="clearBtn" class="text-xs bg-[#3e3e42] hover:bg-[#505055] px-3 py-1.5 rounded transition">Clear Workspace</button>
+    </div>
+
+    <!-- THREE COLUMNS -->
+    <div class="flex flex-1 h-full">
+        
+        <!-- 1. INPUT -->
+        <div class="w-1/3 flex flex-col border-r border-[#3e3e42]">
+            <div class="bg-[#252526] px-4 py-2 text-xs font-semibold text-gray-400 uppercase">Input</div>
+            <textarea id="ediInput" class="flex-1 bg-[#1e1e1e] p-4 font-mono text-sm focus:outline-none resize-none text-gray-300" placeholder="Paste EDI data..."></textarea>
+            
+            <div class="p-4 bg-[#252526] flex gap-2 border-t border-[#3e3e42]">
+                <button id="processBtn" class="flex-1 bg-blue-600 hover:bg-blue-500 text-white py-2 rounded font-bold transition text-xs">
+                    Quick Parse
+                </button>
+                <button id="analyzeBtn" class="flex-1 bg-purple-600 hover:bg-purple-500 text-white py-2 rounded font-bold transition text-xs flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                    Analyze with AI
+                </button>
+            </div>
+        </div>
+
+        <!-- 2. TECHNICAL VIEW -->
+        <div class="w-1/3 flex flex-col border-r border-[#3e3e42]">
+            <div class="bg-[#252526] px-4 py-2 text-xs font-semibold text-gray-400 uppercase">JSON Structure</div>
+            <div id="results" class="flex-1 p-4 overflow-auto font-mono text-xs whitespace-pre bg-[#1e1e1e]"></div>
+        </div>
+
+        <!-- 3. AI SUMMARY -->
+        <div class="w-1/3 flex flex-col bg-[#1e1e1e]">
+            <div class="bg-[#252526] px-4 py-2 text-xs font-semibold text-purple-400 uppercase">AI Executive Summary</div>
+            <div id="aiResults" class="flex-1 p-6 overflow-auto text-sm text-gray-300 leading-relaxed">
+                <p class="text-gray-600 italic mt-10 text-center">Waiting for analysis...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

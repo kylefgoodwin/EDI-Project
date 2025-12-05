@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "edi-engine"
+version = "0.1.0"
+description = "Universal EDI X12 Parser for AI Agents and MCP Servers"
+readme = "README.md"
+authors = [{name = "Your Name", email = "your.email@example.com"}]
+license = {text = "MIT"}
+dependencies = [
+    "mcp>=0.1.0" 
+]
+
+[project.scripts]
+edi-server = "server:main"
