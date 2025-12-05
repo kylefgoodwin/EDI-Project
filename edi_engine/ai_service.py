@@ -5,7 +5,7 @@ from . import parse_edi
 
 # In production, use environment variables: os.environ["GEMINI_API_KEY"]
 # For this demo, we assume the environment has the key.
-api_key = "AIzaSyB_Pnv3JElsGOS50qWM32DgthOup1tiE9o"
+api_key = "your key"
 if api_key:
     genai.configure(api_key=api_key)
 
