@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: edi_project
+Version: 0.0.1
+Summary: EDI Project - X12 parser and services
+Requires-Dist: fastapi
+Requires-Dist: uvicorn[standard]
+Requires-Dist: python-jose[cryptography]
+Requires-Dist: passlib[bcrypt]
+Requires-Dist: python-multipart
+Requires-Dist: google-genai
+Dynamic: requires-dist
+Dynamic: summary

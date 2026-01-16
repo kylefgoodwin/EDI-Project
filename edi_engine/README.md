@@ -4,7 +4,7 @@
 
 Built for the **Model Context Protocol (MCP)**, allowing you to connect Supply Chain or Healthcare data directly to Claude, Cursor, or Azure AI Agents.
 
-## 🚀 Supported Transactions
+## Supported Transactions
 
 ### Logistics & Supply Chain
 - **850 Purchase Order:** PO Numbers, Dates, SKUs, Pricing.

@@ -1,0 +1,11 @@
+README.md
+setup.py
+edi_engine/__init__.py
+edi_engine/ai_service.py
+edi_engine/server.py
+edi_project.egg-info/PKG-INFO
+edi_project.egg-info/SOURCES.txt
+edi_project.egg-info/dependency_links.txt
+edi_project.egg-info/requires.txt
+edi_project.egg-info/top_level.txt
+tests/test_parse_edi.py

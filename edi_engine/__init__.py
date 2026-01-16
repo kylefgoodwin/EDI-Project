@@ -44,8 +44,10 @@ def parse_edi(content):
                 if len(elements) > 1:
                     transaction_set = elements[1]
 
+            # include both `id` (back-compat) and `tag` (used by tests/other code)
             parsed_segments.append({
                 "id": segment_id,
+                "tag": segment_id,
                 "elements": elements[1:] # Store data without the ID
             })
 

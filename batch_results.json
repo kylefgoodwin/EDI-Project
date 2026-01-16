@@ -1,9 +1,9 @@
 [
   {
     "test_name": "Standard PO (850)",
-    "duration_seconds": 7.6,
+    "duration_seconds": 0.0,
     "success": true,
-    "ai_summary": "<b>1. Summary:</b>\nThis document is an EDI 850 Purchase Order (PO-12345) from SENDERID to RECEIVERID, dated December 4, 2023. It requests 100 units of 'PART123' (Vendor Part Number) at $10.50 each, with a requested delivery date of December 10, 2023. The items are to be shipped to \"SHIP TO LOCATION\" (ID 12345).\n\n<b>2. Anomalies:</b>\n<ul>\n    <li><b>Dates:</b> The requested delivery date (December 10, 2023) is six days after the purchase order date (December 4, 2023). This is a relatively tight turnaround time which may require expedited processing or shipping, depending on standard lead times.</li>\n    <li><b>Missing SKUs:</b> The part number 'PART123' is clearly specified as a Vendor Part Number (VP). There are no missing SKUs.</li>\n    <li><b>Urgent Status Codes:</b> There are no explicit \"urgent\" status codes within the document. The short delivery window implies a degree of urgency, but it's not a formal status.</li>\n</ul>\n\n<b>3. Action Item for Warehouse Manager:</b>\n<ul>\n    <li>Review Purchase Order PO-12345 for line item 'PART123'.</li>\n    <li>Confirm availability of 100 units of 'PART123' in inventory.</li>\n    <li>Prepare to pick and pack 100 units of 'PART123' for shipment to \"SHIP TO LOCATION\" (ID 12345).</li>\n    <li>Plan logistics to ensure the order can be delivered by the requested date of December 10, 2023. If this date cannot be met, initiate communication with the customer immediately.</li>\n</ul>",
+    "ai_summary": "<b>GenAI available (google-genai)</b>: Please migrate edi_engine.ai_service to use the google.genai client API. AI calls are skipped to avoid runtime errors.",
     "full_output": {
       "parsed": {
         "success": true,
@@ -16,6 +16,7 @@
           "segments": [
             {
               "id": "ISA",
+              "tag": "ISA",
               "elements": [
                 "00",
                 " ",
@@ -37,6 +38,7 @@
             },
             {
               "id": "GS",
+              "tag": "GS",
               "elements": [
                 "PO",
                 "SENDERID",
@@ -50,6 +52,7 @@
             },
             {
               "id": "ST",
+              "tag": "ST",
               "elements": [
                 "850",
                 "0001"
@@ -57,6 +60,7 @@
             },
             {
               "id": "BEG",
+              "tag": "BEG",
               "elements": [
                 "00",
                 "SA",
@@ -67,6 +71,7 @@
             },
             {
               "id": "DTM",
+              "tag": "DTM",
               "elements": [
                 "002",
                 "20231210"
@@ -74,6 +79,7 @@
             },
             {
               "id": "N1",
+              "tag": "N1",
               "elements": [
                 "ST",
                 "SHIP TO LOCATION",
@@ -83,6 +89,7 @@
             },
             {
               "id": "PO1",
+              "tag": "PO1",
               "elements": [
                 "1",
                 "100",
@@ -95,6 +102,7 @@
             },
             {
               "id": "SE",
+              "tag": "SE",
               "elements": [
                 "8",
                 "0001"
@@ -102,6 +110,7 @@
             },
             {
               "id": "GE",
+              "tag": "GE",
               "elements": [
                 "1",
                 "1"
@@ -109,6 +118,7 @@
             },
             {
               "id": "IEA",
+              "tag": "IEA",
               "elements": [
                 "1",
                 "000000001"
@@ -118,14 +128,14 @@
           "raw_content": "ISA*00* *00* *ZZ*SENDERID       *ZZ*RECEIVERID     *231204*1030*U*00401*000000001*0*P*>~\nGS*PO*SENDERID*RECEIVERID*20231204*1030*1*X*004010~\nST*850*0001~\nBEG*00*SA*PO-12345**20231204~\nDTM*002*20231210~\nN1*ST*SHIP TO LOCATION*92*12345~\nPO1*1*100*EA*10.50**VP*PART123~\nSE*8*0001~\nGE*1*1~\nIEA*1*000000001~"
         }
       },
-      "ai_analysis": "<b>1. Summary:</b>\nThis document is an EDI 850 Purchase Order (PO-12345) from SENDERID to RECEIVERID, dated December 4, 2023. It requests 100 units of 'PART123' (Vendor Part Number) at $10.50 each, with a requested delivery date of December 10, 2023. The items are to be shipped to \"SHIP TO LOCATION\" (ID 12345).\n\n<b>2. Anomalies:</b>\n<ul>\n    <li><b>Dates:</b> The requested delivery date (December 10, 2023) is six days after the purchase order date (December 4, 2023). This is a relatively tight turnaround time which may require expedited processing or shipping, depending on standard lead times.</li>\n    <li><b>Missing SKUs:</b> The part number 'PART123' is clearly specified as a Vendor Part Number (VP). There are no missing SKUs.</li>\n    <li><b>Urgent Status Codes:</b> There are no explicit \"urgent\" status codes within the document. The short delivery window implies a degree of urgency, but it's not a formal status.</li>\n</ul>\n\n<b>3. Action Item for Warehouse Manager:</b>\n<ul>\n    <li>Review Purchase Order PO-12345 for line item 'PART123'.</li>\n    <li>Confirm availability of 100 units of 'PART123' in inventory.</li>\n    <li>Prepare to pick and pack 100 units of 'PART123' for shipment to \"SHIP TO LOCATION\" (ID 12345).</li>\n    <li>Plan logistics to ensure the order can be delivered by the requested date of December 10, 2023. If this date cannot be met, initiate communication with the customer immediately.</li>\n</ul>"
+      "ai_analysis": "<b>GenAI available (google-genai)</b>: Please migrate edi_engine.ai_service to use the google.genai client API. AI calls are skipped to avoid runtime errors."
     }
   },
   {
     "test_name": "Invoice (810) - High Value",
-    "duration_seconds": 8.8,
+    "duration_seconds": 0.0,
     "success": true,
-    "ai_summary": "<b>1. Summary:</b>\nThis document is an electronic invoice (EDI 810) from SUPPLIER to RETAILER. It details an invoice (INV-998877) dated December 5, 2023, related to Purchase Order PO-12345, which was placed on December 1, 2023. The invoice is for 50 units of \"LAPTOP-X1,\" each priced at $250.00, totaling $12,500.00. The invoice is addressed to \"RETAILER NAME\" for \"STORE-001.\"\n\n<b>2. Anomalies:</b>\n<ul>\n    <li>No unusual dates are present; the invoice date is after the purchase order date, which is standard.</li>\n    <li>No missing SKUs; the product is clearly identified as \"LAPTOP-X1\" using the vendor's product number.</li>\n    <li>There are no urgent status codes in this invoice document.</li>\n</ul>\nOverall, there are no apparent anomalies based on the provided data.\n\n<b>3. Action Item for Warehouse Manager:</b>\nThe warehouse manager should:\n<ul>\n    <li>Verify that the corresponding shipment for Purchase Order PO-12345, specifically 50 units of \"LAPTOP-X1,\" was accurately received and processed for \"STORE-001.\"</li>\n    <li>Reconcile this invoice against the actual goods received (proof of delivery/receiving report) and the original purchase order to ensure quantities and items match before the invoice is approved for payment.</li>\n</ul>",
+    "ai_summary": "<b>GenAI available (google-genai)</b>: Please migrate edi_engine.ai_service to use the google.genai client API. AI calls are skipped to avoid runtime errors.",
     "full_output": {
       "parsed": {
         "success": true,
@@ -138,6 +148,7 @@
           "segments": [
             {
               "id": "ISA",
+              "tag": "ISA",
               "elements": [
                 "00",
                 " ",
@@ -159,6 +170,7 @@
             },
             {
               "id": "GS",
+              "tag": "GS",
               "elements": [
                 "IN",
                 "SUPPLIER",
@@ -172,6 +184,7 @@
             },
             {
               "id": "ST",
+              "tag": "ST",
               "elements": [
                 "810",
                 "0002"
@@ -179,6 +192,7 @@
             },
             {
               "id": "BIG",
+              "tag": "BIG",
               "elements": [
                 "20231205",
                 "INV-998877",
@@ -188,6 +202,7 @@
             },
             {
               "id": "N1",
+              "tag": "N1",
               "elements": [
                 "RE",
                 "RETAILER NAME",
@@ -197,6 +212,7 @@
             },
             {
               "id": "IT1",
+              "tag": "IT1",
               "elements": [
                 "1",
                 "50",
@@ -209,12 +225,14 @@
             },
             {
               "id": "TDS",
+              "tag": "TDS",
               "elements": [
                 "1250000"
               ]
             },
             {
               "id": "SE",
+              "tag": "SE",
               "elements": [
                 "6",
                 "0002"
@@ -222,6 +240,7 @@
             },
             {
               "id": "GE",
+              "tag": "GE",
               "elements": [
                 "1",
                 "2"
@@ -229,6 +248,7 @@
             },
             {
               "id": "IEA",
+              "tag": "IEA",
               "elements": [
                 "1",
                 "000000002"
@@ -238,14 +258,14 @@
           "raw_content": "ISA*00* *00* *ZZ*SUPPLIER       *ZZ*RETAILER       *231205*1400*U*00401*000000002*0*P*>~\nGS*IN*SUPPLIER*RETAILER*20231205*1400*2*X*004010~\nST*810*0002~\nBIG*20231205*INV-998877*20231201*PO-12345~\nN1*RE*RETAILER NAME*92*STORE-001~\nIT1*1*50*EA*250.00**VP*LAPTOP-X1~\nTDS*1250000~\nSE*6*0002~\nGE*1*2~\nIEA*1*000000002~"
         }
       },
-      "ai_analysis": "<b>1. Summary:</b>\nThis document is an electronic invoice (EDI 810) from SUPPLIER to RETAILER. It details an invoice (INV-998877) dated December 5, 2023, related to Purchase Order PO-12345, which was placed on December 1, 2023. The invoice is for 50 units of \"LAPTOP-X1,\" each priced at $250.00, totaling $12,500.00. The invoice is addressed to \"RETAILER NAME\" for \"STORE-001.\"\n\n<b>2. Anomalies:</b>\n<ul>\n    <li>No unusual dates are present; the invoice date is after the purchase order date, which is standard.</li>\n    <li>No missing SKUs; the product is clearly identified as \"LAPTOP-X1\" using the vendor's product number.</li>\n    <li>There are no urgent status codes in this invoice document.</li>\n</ul>\nOverall, there are no apparent anomalies based on the provided data.\n\n<b>3. Action Item for Warehouse Manager:</b>\nThe warehouse manager should:\n<ul>\n    <li>Verify that the corresponding shipment for Purchase Order PO-12345, specifically 50 units of \"LAPTOP-X1,\" was accurately received and processed for \"STORE-001.\"</li>\n    <li>Reconcile this invoice against the actual goods received (proof of delivery/receiving report) and the original purchase order to ensure quantities and items match before the invoice is approved for payment.</li>\n</ul>"
+      "ai_analysis": "<b>GenAI available (google-genai)</b>: Please migrate edi_engine.ai_service to use the google.genai client API. AI calls are skipped to avoid runtime errors."
     }
   },
   {
     "test_name": "Broken / Malformed File",
-    "duration_seconds": 4.81,
+    "duration_seconds": 0.0,
     "success": true,
-    "ai_summary": "<b>1. Summary:</b>\n<ul>\n    <li>This document attempts to be an X12 EDI interchange, but its content is explicitly marked as \"NOT VALID EDI\" within the Interchange Control Header (ISA segment). It's essentially a malformed or test file that cannot be processed.</li>\n</ul>\n\n<b>2. Anomalies:</b>\n<ul>\n    <li>The most significant anomaly is the text \"THIS IS NOT VALID EDI\" appearing directly as an element within the ISA segment, indicating a severe parsing error or a deliberately corrupted file.</li>\n    <li>No transaction set, sender, or receiver information could be identified due to the invalid content.</li>\n    <li>There are no valid dates, SKUs, or status codes present to analyze as the document is fundamentally corrupt.</li>\n</ul>\n\n<b>3. Action Item for Warehouse Manager:</b>\n<ul>\n    <li><b>Reject and Escalate:</b> This EDI document is invalid and cannot be processed. The warehouse manager should immediately reject this file.</li>\n    <li><b>Contact EDI/IT Support:</b> Inform the internal EDI or IT support team about the receipt of a malformed EDI file.</li>\n    <li><b>Request Retransmission:</b> Coordinate with the EDI/IT team to contact the sender and request a proper, valid EDI retransmission. No actions related to inventory or shipping can be taken based on this document.</li>\n</ul>",
+    "ai_summary": "<b>GenAI available (google-genai)</b>: Please migrate edi_engine.ai_service to use the google.genai client API. AI calls are skipped to avoid runtime errors.",
     "full_output": {
       "parsed": {
         "success": true,
@@ -258,6 +278,7 @@
           "segments": [
             {
               "id": "ISA",
+              "tag": "ISA",
               "elements": [
                 "00",
                 " ... THIS IS NOT VALID EDI ..."
@@ -267,7 +288,7 @@
           "raw_content": "ISA*00* ... THIS IS NOT VALID EDI ..."
         }
       },
-      "ai_analysis": "<b>1. Summary:</b>\n<ul>\n    <li>This document attempts to be an X12 EDI interchange, but its content is explicitly marked as \"NOT VALID EDI\" within the Interchange Control Header (ISA segment). It's essentially a malformed or test file that cannot be processed.</li>\n</ul>\n\n<b>2. Anomalies:</b>\n<ul>\n    <li>The most significant anomaly is the text \"THIS IS NOT VALID EDI\" appearing directly as an element within the ISA segment, indicating a severe parsing error or a deliberately corrupted file.</li>\n    <li>No transaction set, sender, or receiver information could be identified due to the invalid content.</li>\n    <li>There are no valid dates, SKUs, or status codes present to analyze as the document is fundamentally corrupt.</li>\n</ul>\n\n<b>3. Action Item for Warehouse Manager:</b>\n<ul>\n    <li><b>Reject and Escalate:</b> This EDI document is invalid and cannot be processed. The warehouse manager should immediately reject this file.</li>\n    <li><b>Contact EDI/IT Support:</b> Inform the internal EDI or IT support team about the receipt of a malformed EDI file.</li>\n    <li><b>Request Retransmission:</b> Coordinate with the EDI/IT team to contact the sender and request a proper, valid EDI retransmission. No actions related to inventory or shipping can be taken based on this document.</li>\n</ul>"
+      "ai_analysis": "<b>GenAI available (google-genai)</b>: Please migrate edi_engine.ai_service to use the google.genai client API. AI calls are skipped to avoid runtime errors."
     }
   }
 ]

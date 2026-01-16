@@ -22,3 +22,5 @@ build/
 
 # Secret replacement template
 replace_secrets.txt
+edi_engine/__init__.py
+batch_results.json
