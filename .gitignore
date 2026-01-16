@@ -1,0 +1,24 @@
+# Virtual environment
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+.pytest_cache/
+
+# Editor files
+.vscode/
+.idea/
+
+# Node modules and electron build artifacts
+edi-desktop-app/node_modules/
+edi-desktop-app/node_modules/**
+edi-desktop-app/*.app
+edi-desktop-app/dist/
+
+# Build artifacts
+dist/
+build/
+
+# Secret replacement template
+replace_secrets.txt
