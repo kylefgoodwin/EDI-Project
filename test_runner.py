@@ -13,9 +13,9 @@ print("--- 🚀 Starting Batch AI EDI Testing ---")
 # 2. Import Engine
 try:
     from edi_engine.ai_service import analyze_edi_with_ai
-    print("✅ Engine loaded successfully.\n")
+    print("Engine loaded successfully.\n")
 except ImportError:
-    print("❌ Could not load edi_engine. Make sure you are in the root folder.")
+    print("Could not load edi_engine. Make sure you are in the root folder.")
     sys.exit(1)
 
 # 3. Define Test Cases (A mix of document types)
@@ -56,7 +56,7 @@ IEA*1*000000002~"""
 results = []
 
 for case in test_cases:
-    print(f"🔄 Processing: {case['name']}...")
+    print(f"Processing: {case['name']}...")
     
     start_time = time.time()
     
@@ -75,13 +75,13 @@ for case in test_cases:
     })
     
     if output.get("parsed", {}).get("success", False):
-        print(f"   ✅ Success ({duration}s)")
+        print(f"   Success ({duration}s)")
     else:
-        print(f"   ⚠️  Failed / Skipped ({duration}s)")
+        print(f"   Failed / Skipped ({duration}s)")
 
 # 5. Save Report
 output_filename = "batch_results.json"
 with open(output_filename, "w") as f:
     json.dump(results, f, indent=2)
 
-print(f"\n📄 Batch complete. Results saved to: {output_filename}")
+print(f"\n Batch complete. Results saved to: {output_filename}")
